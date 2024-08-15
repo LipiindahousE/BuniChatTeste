@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat com Clientes</title>
+</head>
+<body>
+    <h1>Bem-vindo ao nosso Chat</h1>
+    <p>Clique no botão abaixo para iniciar o chat com um de nossos representantes.</p>
+
+    <!-- Botão para iniciar o chat -->
+    <button onclick="initEmbeddedMessaging()">Iniciar Chat</button>
+
+    <!-- Script para inicializar o serviço de mensagens incorporado -->
+    <script type='text/javascript'>
+        function initEmbeddedMessaging() {
+            try {
+                embeddedservice_bootstrap.settings.language = 'pt_BR'; // Por exemplo, 'en' ou 'en-US'
+
+                embeddedservice_bootstrap.init(
+                    '00DHZ000001ffUr',
+                    'Chat_de_Teste',
+                    'https://buni--uat.sandbox.my.site.com/ESWChatdeTeste1718730014473',
+                    {
+                        scrt2URL: 'https://buni--uat.sandbox.my.salesforce-scrt.com'
+                    }
+                );
+            } catch (err) {
+                console.error('Erro ao carregar o Messaging Incorporado: ', err);
+            }
+        };
+    </script>
+
+    <!-- Script externo necessário para o bootstrap do chat -->
+    <script type='text/javascript' src='https://buni--uat.sandbox.my.site.com/ESWChatdeTeste1718730014473/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+</body>
+</html>
